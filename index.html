@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Security Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                        url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            color: white;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-content {
+            padding: 2rem;
+        }
+
+        .header-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .header-buttons {
+            margin-top: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            margin: 0 1rem;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #333;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 1.5rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li a i {
+            margin-right: 0.5rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 4rem 2rem;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            color: #007bff;
+        }
+
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #007bff;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: white;
+            border: 4px solid #007bff;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .right::after {
+            left: -16px;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        /* Experience Styles */
+        .experience-item {
+            background-color: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .experience-item h3 {
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+
+        /* Projects Styles */
+        .projects-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-item {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Skills Styles */
+        .skills-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .skill-item {
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .skill-item i {
+            font-size: 2.5rem;
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Styles */
+        .contact-content {
+            text-align: center;
+        }
+
+        .social-icons {
+            margin-top: 2rem;
+        }
+
+        .social-icons a {
+            font-size: 2rem;
+            margin: 0 1rem;
+            color: #007bff;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #0056b3;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::after {
+                left: 15px;
+            }
+
+            .right {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-content">
+            <img src="https://media.licdn.com/dms/image/v2/D5603AQHKAbyKAZLEkg/profile-displayphoto-shrink_200_200/B56ZTJWZQRHEAY-/0/1738544879068?e=1745452800&v=beta&t=1QmdcV1-txKhAW7A5jk4gBIprWhrozELFxXu90e_N-U" alt="Deva Aravind Lutukurty" class="profile-picture">
+            <div class="text-content">
+                <h1>Deva Aravind Lutukurty</h1>
+                <p>CyberSecurity | Threat Hunter | SOC analyst</p>
+                <div class="header-buttons">
+                    <a href="#about" class="btn">About Me</a>
+                    <a href="#contact" class="btn">Contact</a>
+                    <a href="https://medium.com/@devaaravindlutukurty" class="btn">Blog</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+            <li><a href="#timeline"><i class="fas fa-briefcase "></i> Experience</a></li>
+            <li><a href="#education"><i class="fas fa-history"></i> Education</a></li>
+            <li><a href="#projects"><i class="fas fa-code"></i> Projects</a></li>
+            <li><a href="#skills"><i class="fas fa-tools"></i> Skills</a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <p>Certified CompTIA Security+ cybersecurity professional with 3 years of experience in threat
+                detection, incident response, and vulnerability management. Skilled in SIEM monitoring, endpoint
+                protection, and risk assessment. Passionate about proactive defense strategies and security best
+                practices.</p>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="section">
+        <h2>Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>Threat Hunter L1</h3>
+                    <p>Microsoft</p>
+                    <p>Nov 2021 - July 2023</p>
+                    <p>Proactively conducted threat hunting and analysis to identify and mitigate cyber threats and
+                        attack campaigns.
+                        Developed and implemented advanced detection logic to trap, analyse, and neutralise
+                        malicious activities, enhancing cybersecurity defences.
+                        Analysed security events and logs to detect malicious behaviours within compromised
+                        systems, leveraging trap results for comprehensive threat assessment.
+                        Specified in critical threat scenarios, including hands-on-keyboard incidents, lateral
+                        movement, and data exfiltration to ensure swift incident response.
+                        Focused on high-impact threats such as ransomware, advanced phishing, and alert
+                        outbreaks, executing proactive countermeasures to strengthen security posture.</p>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <h3>SOC Analyst L1</h3>
+                    <p>TCL</p>
+                    <p>Aug 2020 - Nov 2021</p>
+                    <p>Monitored and analysed security events and alerts in Splunk to detect potential threats and
+                        suspicious activities.
+                        Investigated security incidents using Splunk dashboards, correlation searches, and log
+                        analysis to identify indicators of compromise (IOCs).
+                        Performed initial triage, validation, and escalation of security alerts based on SOC playbooks
+                        and standard operating procedures (SOPs).
+                        Developed and executed Splunk queries (SPL) to enhance threat detection, automate
+                        monitoring, and refine alerting mechanisms.
+                        Identified and mitigated common security threats such as malware infections, phishing
+                        attempts, unauthorised access, and anomalous network behaviour.
+                        Maintained detailed incident reports and logs, ensuring accurate documentation for
+                        compliance and audit requirements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Timeline Section -->
+<section id="education" class="section">
+    <h2>Education</h2>
+    <div class="timeline">
+        <div class="timeline-item left">
+            <div class="timeline-content">
+                <h3 style="color: blue;">MS in Cyber/Electronic Operations and Warfare
+                 </h3>
+                <h3>Saint Louis University</h3>
+                <p>Aug 2023 - May 2025</p>
+                <p>Gaining expertise in cybersecurity principles, risk management, and advanced security
+                    operations..
+                    Engaging in hands-on projects involving SIEM tools, threat hunting, digital forensics, and
+                    vulnerability assessments.
+                    Applying security frameworks and compliance standards to real-world scenarios.
+                    Collaborating on penetration testing exercises and developing incident response strategies.
+                    Expanding technical skills in network security, cloud security, and cryptography.</p>
+            </div>
+        </div>
+        <div class="timeline-item right">
+            <div class="timeline-content">
+                <h3 style="color: blue;">BS in Information Technology</h3>
+                <h3>Vignan Institute of Information Technology</h3>
+                <p>June 2016 - Sep 2020</p>
+                <p> Enrolled and gained knowledge in subjects like Cryptography and network security, Computer networking, Distribued networks etc.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <h2>Projects</h2>
+        <div class="projects-content">
+            <div class="project-item">
+                <h3>Malware Analysis Lab Setup & Research
+                </h3>
+                <p>Configured an isolated malware analysis lab using REMnux, FLARE VM, and INetSim for safe dynamic and static malware research.
+                    Performed static analysis using tools like Ghidra, IDA Free, and PE Studio to examine malware binaries.
+                    Conducted advanced malware analysis, including behavioral monitoring, sandboxing, and memory forensics.
+                    Utilized reverse engineering techniques to deconstruct malware and analyze obfuscation methods.
+                    Simulated network environments to analyze malware communication and C2 behavior..</p>
+            </div>
+            <div class="project-item">
+                <h3>Threat Intelligence Lab Setup & Research</h3>
+                <p>Built a threat intelligence lab using MISP, OpenCTI, and Threat Intelligence Platforms (TIPs) for data aggregation and analysis.
+                    Integrated MITRE ATT&CK framework for adversary behavior mapping and cyber threat profiling.
+                    Conducted OSINT research using Maltego, SpiderFoot, and Shodan to track threat actors and infrastructure.
+                    Automated threat data enrichment with APIs from VirusTotal, AlienVault OTX, and GreyNoise.
+                    Developed cyber threat forecasting models to predict emerging attack trends and APT activities.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <h2>Skills</h2>
+        <div class="skills-content">
+            <div class="skill-item">
+                <i class="fas fa-shield-alt"></i>
+                <p>Security Monitoring & Incident Response - SOAR, SIEM, EDR</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p>Threat Analysis</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-bug"></i>
+                <p>Malware Analysis & Forensics</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-ambulance"></i>
+                <p>Incident Response</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-tools"></i>
+                <p>Incident Response & Mitigation</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-search"></i>
+                <p>OSINT Research & Intelligence Lifecycle</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-network-wired"></i>
+                <p>MITRE ATT&CK</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-user-secret"></i>
+                <p>Threat Actor Profiling & Attribution</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-chart-line"></i>
+                <p>Threat Intelligence Platforms (TIPs)</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-biohazard"></i>
+                <p>Advanced Persistent Threat (APT) Groups</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-bullseye"></i>
+                <p>Cyber Threat Forecasting & Reporting</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-project-diagram"></i>
+                <p>Strong Understanding of Networking Concepts</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-layer-group"></i>
+                <p>Pyramid of Pain</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-lock"></i>
+                <p>Intrusion Detection</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-fish"></i>
+                <p>Wireshark</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-microchip"></i>
+                <p>Basics of Reverse Engineering</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-network-wired"></i>
+                <p>Network Security</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <h2>Tools</h2>
+        <div class="skills-content">
+            <div class="skills-content">
+                <div class="skill-item">
+                    <i class="fas fa-server"></i>
+                    <p>SIEM: Splunk, ServiceNow, SentinelOne, CrowdStrike Falcon</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-shield-virus"></i>
+                    <p>Vulnerability Management Tools: Nessus, Qualys, Tenable, Wireshark, Rapid7, Nmap</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-laptop-medical"></i>
+                    <p>EDR: CrowdStrike, Microsoft Defender for Endpoint</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-code"></i>
+                    <p>Scripting Languages: KQL, SQL, PowerShell, YARA</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-toolbox"></i>
+                    <p>Tools: Pestudio, Cassandra, Bilbao, Researcher Studio, Process Monitor, OSINT tools</p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2>Contact</h2>
+        <div class="contact-content">
+            <p>Email: devaaravindlutukurty@gmail.com</p>
+            <p>Phone: +1 (314)-267-7936</p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/devaaravindlutukurty/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/devaaravind12?tab=projects" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Deva Aravind Lutukurty. All rights reserved.</p>
+    </footer>
+</body>
+</html>
